@@ -9,15 +9,15 @@ class Router
     protected static $routes= [];  //обявляем свойства  - таблица маршрутов
     protected static $route= [];   //обявляем свойства - текущий маршрут
 
-    public static function add($regexp, $route=[]){   // регулярное выражение из к.стр и текущий маршрут
+    public static function add($regexp, $route=[]){   // метод add   --регулярное выражение из к.стр и текущий маршрут
         self::$routes[$regexp] = $route;
     }
 
-    public static function getRoutes (){
+    public static function getRoutes (){               // таблица маршрутов
        return self::$routes;
     }
 
-    public static function getRoute(){
+    public static function getRoute(){                // текущий маршрут
         return self::$route;
     }
 

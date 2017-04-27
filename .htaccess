@@ -1,3 +1,4 @@
 AddDefaultCharset utf-8
 RewriteEngine On
+#перенаправление в папку public
 RewriteRule ^(.*)$ /public/$1
