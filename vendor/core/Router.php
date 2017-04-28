@@ -54,6 +54,12 @@ class Router
             $controller = self::upperCamelCase(self::$route['controller']);
             if (class_exists($controller)){
                 $cObj = new $controller;
+                $action =self::lowerCamelCase(self::$route['action'] . 'Action');
+                if (method_exists($cObj,$action)){
+                    $cObj->$action();
+                }else{
+                    echo "Meтод <b>$controller::$action</b> не найден";
+                }
             }else{
                 echo "Контроллер <b>$controller</b> не найден ";
             }
@@ -66,6 +72,11 @@ class Router
         return str_replace(' ', '', ucwords(str_replace('-', ' ', $name)));
 
     }
+    protected static function lowerCamelCase($name){
+        return lcfirst(self::upperCamelCase($name));
+
+    }
+
 }
 
 

@@ -7,8 +7,14 @@
  */
 
 class Posts {
-    public function __construct(){
-        echo 'Posts::_construct';
+    public function index(){
+        echo 'Posts::  index';
+    }
+    public function test(){
+        echo 'Posts::  test';
+    }
+    public function testPage(){
+        echo 'Posts::  testPage';
     }
 
 }
