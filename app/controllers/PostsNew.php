@@ -6,6 +6,9 @@
  * Date: 28.04.2017
  * Time: 23:18
  */
+
+namespace app\controllers;
+
 class PostsNew {
     public function indexAction(){
         echo 'PostsNew:: index';

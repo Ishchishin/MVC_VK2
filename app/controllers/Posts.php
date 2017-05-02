@@ -6,15 +6,30 @@
  * Time: 23:08
  */
 
+namespace app\controllers;
+
 class Posts {
-    public function index(){
+
+    public $route = [];
+    public function _construct($route){
+        $this->route = $route;
+    }
+
+    public function indexAction(){
+        debag($this->route);
         echo 'Posts::  index';
     }
-    public function test(){
+    public function testAction(){
+        debag($this->route);
         echo 'Posts::  test';
     }
-    public function testPage(){
+    public function testPageAction(){
         echo 'Posts::  testPage';
     }
+    public function beforeAction(){
+        echo 'Posts::  before';
+
+    }
+
 
 }

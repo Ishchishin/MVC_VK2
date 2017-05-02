@@ -1,5 +1,8 @@
 <?php
 
+
+namespace vendor\core;
+
 class Router
 {
   //  public function _construct(){
@@ -37,6 +40,7 @@ class Router
                 if (!isset($route['action'])){
                     $route['action'] = 'index';
                 }
+                $route['controller'] = self::upperCamelCase($route['controller']);
                 self::$route = $route;
                 //debag($route);
                 return true;
@@ -51,9 +55,10 @@ class Router
      */
     public static function dispatch($url){
         if (self::matchRoute($url)){
-            $controller = self::upperCamelCase(self::$route['controller']);
+            $controller = 'app\controllers\\' . self::$route['controller'];
+            ///debag(self::$route);
             if (class_exists($controller)){
-                $cObj = new $controller;
+                $cObj = new $controller(self::$route);
                 $action =self::lowerCamelCase(self::$route['action'] . 'Action');
                 if (method_exists($cObj,$action)){
                     $cObj->$action();
