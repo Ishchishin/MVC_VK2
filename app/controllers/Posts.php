@@ -8,19 +8,17 @@
 
 namespace app\controllers;
 
-class Posts {
+use vendor\core\base\Controller;
 
-    public $route = [];
-    public function _construct($route){
-        $this->route = $route;
-    }
+class Posts extends Controller {
+
 
     public function indexAction(){
-        debag($this->route);
         echo 'Posts::  index';
     }
     public function testAction(){
         debag($this->route);
+
         echo 'Posts::  test';
     }
     public function testPageAction(){

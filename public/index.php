@@ -30,7 +30,7 @@ spl_autoload_register(function ($class){
 //Router:: add('posts/',['conttoller'=>'Posts','action'=> 'index']) ;
 //Router:: add('',['conttoller'=>'Main','action'=> 'index']) ;
 
-Router::add('^$',['controller' => 'Main', 'action'=> 'index']);
+Router::add('^page/(?P<action>[a-z-]+)/(?P<alias>[a-z-]+)$',['controller' => 'Page', 'action'=> 'index']);
 // Правила по умолчанию
 Router::add('^$',['controller' => 'Main', 'action'=> 'index']);
 Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
